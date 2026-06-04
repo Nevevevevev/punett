@@ -37,6 +37,12 @@ def process():
             father.append(storage.copy())
             counter = 0
             storage = []
+    html_str = "<tr>"
+    rowcolc = len(mother)
+    for headering in mother:
+        html_str += "".join(headering)
+    html_str += "</tr>"
+    for _ in range(rowcolc)
     return render_template("table.html")
 if __name__ == "__main__":
     app.run(debug=True)
