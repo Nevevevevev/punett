@@ -1,6 +1,12 @@
 <html>
     <head><title>PUNETT GENERATOR</title></head>
     <body>
-        <table><tbody>{{cont}}</tbody></table>
+        <table style="border-width: 2px;"><thead>{{head}}</thead><tbody>{{cont}}</tbody></table>
     </body>
+    <script>
+        document.querySelectorAll("td").forEach(cell => {
+            const firstCellText = cell.parentElement.cells[0].textContent;
+            const columnName = table.querySelector('thead tr').cells[cell.cellIndex].textContent;
+        });
+    </script>
 </html>

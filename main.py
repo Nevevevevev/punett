@@ -38,21 +38,21 @@ def process():
             father.append(storage.copy())
             counter = 0
             storage = []
-    html_str = "<tr>"
+    ht = "<tr>"
     rowcolc = len(mother)
-    html_str += "<th></th>"
+    ht += "<th></th>"
     print(mother)
     fatherc = list(itertools.product(*father))
     motherc = list(itertools.product(*mother))
     for headering in motherc:
-        html_str += "<th>"
-        html_str += "".join(headering)
-        html_str += "</th>"
-    html_str += "</tr>"
+        ht += "<th>"
+        ht += "".join(headering)
+        ht += "</th>"
+    html_str = "</tr>"
     for i in range(rowcolc + 1):
         html_str += "<tr>"
         html_str += "<td>" + "".join(fatherc[i]) + "</td>"
         html_str += "<td></td>" * rowcolc
-    return render_template("table.html", cont=Markup(html_str))
+    return render_template("table.html", head=Markup(ht),  cont=Markup(html_str))
 if __name__ == "__main__":
     app.run(debug=True)
