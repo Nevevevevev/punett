@@ -2,7 +2,8 @@ import matplotlib
 import pandas as pd
 import flask
 import itertools
-from flask import Flask, render_template, request
+from markupsafe import Markup
+from flask import request, render_template, Flask
 app = Flask(__name__)
 @app.route("/")
 def home():
@@ -39,10 +40,16 @@ def process():
             storage = []
     html_str = "<tr>"
     rowcolc = len(mother)
+    html_str += "<th></th>"
     for headering in mother:
+        html_str += "<th>"
         html_str += "".join(headering)
+        html_str += "</th>"
     html_str += "</tr>"
-    for _ in range(rowcolc)
-    return render_template("table.html")
+    for i in range(rowcolc):
+        html_str += "<tr>"
+        html_str += "<td>" + "".join(father[i]) + "</td>"
+        html_str += "<td></td>" * rowcolc
+    return render_template("table.html", cont=Markup(html_str))
 if __name__ == "__main__":
     app.run(debug=True)
