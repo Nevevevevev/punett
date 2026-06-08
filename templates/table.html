@@ -6,10 +6,13 @@
     <script>
         function sortt(th){
             var thi = t.groupBy(th, th => item[0].toUpperCase());
+            return thi
         }
         document.querySelectorAll("td").forEach(cell => {
             const firstCellText = cell.parentElement.cells[0].textContent;
             const columnName = table.querySelector('thead tr').cells[cell.cellIndex].textContent;
+            idk = firstCellText + columnName
+            cell.textContent = sortt(...idk);
         });
     </script>
 </html>
