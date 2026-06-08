@@ -52,7 +52,8 @@ def process():
     for i in range(rowcolc + 1):
         html_str += "<tr>"
         html_str += "<td>" + "".join(fatherc[i]) + "</td>"
-        html_str += "<td></td>" * rowcolc
+        for _ in range(rowcolc + 1):
+            html_str += "<td></td>"
     return render_template("table.html", head=Markup(ht),  cont=Markup(html_str))
 if __name__ == "__main__":
     app.run(debug=True)

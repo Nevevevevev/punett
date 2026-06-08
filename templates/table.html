@@ -1,18 +1,26 @@
 <html>
-    <head><title>PUNETT GENERATOR</title></head>
+    <head><title>PUNETT GENERATOR</title><style>
+        table, td, th{
+            border: 2px solid black;
+        }
+    </style></head>
     <body>
-        <table style="border-width: 2px;"><thead>{{head}}</thead><tbody>{{cont}}</tbody></table>
+        <table><thead>{{head}}</thead><tbody>{{cont}}</tbody></table>
     </body>
     <script>
+        window.onerror = function(message, source, lineno, colno, error) {
+            alert("Error: " + message + "\nAt line: " + lineno);
+            return true; 
+        };
         function sortt(th){
-            var thi = t.groupBy(th, th => item[0].toUpperCase());
+            var thi = th.toSorted((a, b) => a.localeCompare(b));
             return thi
         }
         document.querySelectorAll("td").forEach(cell => {
             const firstCellText = cell.parentElement.cells[0].textContent;
-            const columnName = table.querySelector('thead tr').cells[cell.cellIndex].textContent;
+            const columnName = document.querySelector("table").querySelector('thead tr').cells[cell.cellIndex].textContent;
             idk = firstCellText + columnName
-            cell.textContent = sortt(...idk);
+            cell.textContent = sortt(Array.from(idk));
         });
     </script>
 </html>
