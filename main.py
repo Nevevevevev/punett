@@ -39,11 +39,10 @@ def process():
             counter = 0
             storage = []
     ht = "<tr>"
-    rowcolc = len(mother)
     ht += "<th></th>"
-    print(mother)
     fatherc = list(itertools.product(*father))
     motherc = list(itertools.product(*mother))
+    rowcolc = len(motherc)
     for headering in motherc:
         ht += "<th>"
         ht += "".join(headering)
