@@ -48,10 +48,10 @@ def process():
         ht += "".join(headering)
         ht += "</th>"
     html_str = "</tr>"
-    for i in range(rowcolc + 1):
+    for i in range(rowcolc):
         html_str += "<tr>"
         html_str += "<td>" + "".join(fatherc[i]) + "</td>"
-        for _ in range(rowcolc + 1):
+        for _ in range(rowcolc):
             html_str += "<td></td>"
     return render_template("table.html", head=Markup(ht),  cont=Markup(html_str))
 if __name__ == "__main__":
