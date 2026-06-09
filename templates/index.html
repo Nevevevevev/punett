@@ -3,16 +3,47 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
+            body{
+                display: flex;
+                align-items: center;
+            }
             form>*{
                 margin: 3px;
             }
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-        <form action="/inputs" method="POST" style="border: 2px black solid">
+    <div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">EXTRA SETTINGS</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <input type="number" placeholder="FONT SIZE" id="font" class="form-control" value="12">
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="save">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+        <button class="btn btn-primary text-center">SETTINGS</button>
+        <form action="/inputs" method="POST" style="border: 2px black solid" class="container-md">
             <textarea placeholder="MOTHER DATA" name="mother" class="form-control"></textarea>
             <textarea placeholder="FATHER DATA" name="father" class="form-control"></textarea>
-            <input type="submit" value="SUBMIT" class="btn btn-primary">
+            <div class="d-grid gap-2"><input type="submit" value="SUBMIT" class="btn btn-primary"></div>
         </form>
+        <script>
+            var fon = 12
+            $("save").click(function(){
+                fon = $("font").val()
+            });
+        </script>
     </body>
 </html>
